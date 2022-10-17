@@ -33,19 +33,15 @@ namespace Ship_It
                 //add items to list 
                case "1":
                     addToList(new Bicycles());                    
-                    //Shipper._bikeCount += 1;
                     return true; 
                case "2":
                     addToList(new BaseballGloves());
-                    //Shipper._BaseballGloveCount += 1;
                     return true;
                case"3":
                     addToList(new LawnMower());
-                    //Shipper._LawnmowerCount += 1;
                     return true;
                case"4":
                    addToList(new Crackers());
-                    //Shipper._crackersCount += 1;
                     return true;
                case "5":
                     Console.WriteLine(Shipper.ShippingManifest());

@@ -12,8 +12,8 @@ namespace Ship_It
         private static int _BaseballGloveCount = 0;
         private static int _LawnmowerCount = 0;
         private static int _crackersCount = 0;
-
         private static decimal _totalShipping;
+
         private static string _bicycleName = SetName(new Bicycles());
         private static string _BaseballGloveName = SetName(new BaseballGloves());
         private static string _lawnmowerName = SetName(new LawnMower());
