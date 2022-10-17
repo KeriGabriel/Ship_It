@@ -5,7 +5,7 @@ namespace Ship_It
 {
      class Shipper
     {
-        public static List<IShippable> _shippingList = new List<IShippable>();
+        private static List<IShippable> _shippingList = new List<IShippable>();
 
         public static int _bikeCount = 0;
         public static int _BaseballGloveCount = 0;
@@ -31,7 +31,7 @@ namespace Ship_It
         {
             return item.Product;
         }
-       public static string ShippingManifest()
+        public static string ShippingManifest()
         {
             string manifest = "Shipment manifest: \n"
                 + ManufestConvert(_bikeCount, _bicycleName)
@@ -40,7 +40,7 @@ namespace Ship_It
                 + ManufestConvert(_crackersCount, _crackersName);
             return manifest;
         }
-         private static  string ManufestConvert(int count, string name)
+        private static  string ManufestConvert(int count, string name)
           {
             if (count > 1)
             {
@@ -48,5 +48,10 @@ namespace Ship_It
             }            
             return "\n"+ count + name;
            }       
+        public static void AddToList(IShippable item)
+        {
+            _shippingList.Add(item);
+        }
+
     }
 }

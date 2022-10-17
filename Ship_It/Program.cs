@@ -70,7 +70,7 @@ namespace Ship_It
         }      
         private static void addToList(IShippable item)
         {
-            Shipper._shippingList.Add(item);
+            Shipper.AddToList(item);
             Console.WriteLine("1 "+ item.Product +" has been added");
             Console.WriteLine("Press any key to return to the menu");
             Console.ReadLine();
