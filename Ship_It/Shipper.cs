@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml.Schema;
 
 namespace Ship_It
 {
@@ -7,10 +8,10 @@ namespace Ship_It
     {
         private static List<IShippable> _shippingList = new List<IShippable>();
 
-        public static int _bikeCount = 0;
-        public static int _BaseballGloveCount = 0;
-        public static int _LawnmowerCount = 0;
-        public static int _crackersCount = 0;
+        private static int _bikeCount = 0;
+        private static int _BaseballGloveCount = 0;
+        private static int _LawnmowerCount = 0;
+        private static int _crackersCount = 0;
 
         private static decimal _totalShipping;
         private static string _bicycleName = SetName(new Bicycles());
@@ -33,14 +34,15 @@ namespace Ship_It
         }
         public static string ShippingManifest()
         {
+            SetProductCount();
             string manifest = "Shipment manifest: \n"
                 + ManufestConvert(_bikeCount, _bicycleName)
                 + ManufestConvert(_BaseballGloveCount, _BaseballGloveName)
                 + ManufestConvert(_LawnmowerCount, _lawnmowerName)
-                + ManufestConvert(_crackersCount, _crackersName);
+                + "\n" + _crackersCount + _crackersName;
             return manifest;
         }
-        private static  string ManufestConvert(int count, string name)
+        private static string ManufestConvert(int count, string name)
           {
             if (count > 1)
             {
@@ -52,6 +54,20 @@ namespace Ship_It
         {
             _shippingList.Add(item);
         }
-
-    }
+        private static int CountItemInList(List<IShippable> myList, string CountName)
+        {
+            int count = 0;
+            foreach (IShippable item in myList)
+                if (item.Product == CountName)
+                    count++;
+            return count;
+        }
+        private static void SetProductCount()
+        {
+           _bikeCount = CountItemInList(_shippingList, _bicycleName);
+           _LawnmowerCount = CountItemInList(_shippingList, _lawnmowerName);
+           _crackersCount = CountItemInList(_shippingList, _crackersName);
+           _BaseballGloveCount = CountItemInList(_shippingList, _BaseballGloveName);
+        }
+     }
 }
