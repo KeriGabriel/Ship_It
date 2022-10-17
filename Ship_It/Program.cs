@@ -36,19 +36,18 @@ namespace Ship_It
                     Shipper._bikeCount += 1;
                     return true; 
                case "2":
-                    Shipper._BaseballGloveCount = 1;
                     addToList(new BaseballGloves());
+                    Shipper._BaseballGloveCount += 1;
                     return true;
                case"3":
-                    Shipper._LawnmowerCount += 1;
                     addToList(new LawnMower());
+                    Shipper._LawnmowerCount += 1;
                     return true;
                case"4":
-                    Shipper._crackersCount += 1;
                    addToList(new Crackers());
+                    Shipper._crackersCount += 1;
                     return true;
                case "5":
-                    Console.WriteLine("Shipment manifest:");
                     Console.WriteLine(Shipper.ShippingManifest());
                     Console.WriteLine("Press any key to return to the menu");
                     Console.ReadLine();
